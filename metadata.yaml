@@ -10,7 +10,7 @@ spec:
     source:
       repo: https://github.com/yogitaupadhyay/terraform-google-cloud-run.git
       sourceType: git
-    version: 0.17.2
+    version: 0.1.0
     actuationTool:
       flavor: Terraform
       version: ">= 1.3"
