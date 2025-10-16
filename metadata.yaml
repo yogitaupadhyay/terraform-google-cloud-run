@@ -10,7 +10,7 @@ spec:
     source:
       repo: https://github.com/yogitaupadhyay/terraform-google-cloud-run.git
       sourceType: git
-    version: 0.1.0
+    version: 0.1.1
     actuationTool:
       flavor: Terraform
       version: ">= 1.3"
@@ -90,11 +90,6 @@ spec:
         description: A set of key/value label pairs to assign to the service
         varType: map(string)
         defaultValue: {}
-      - name: service_annotations
-        description: Annotations to the service. Acceptable values all, internal, internal-and-cloud-load-balancing
-        varType: map(string)
-        defaultValue:
-          run.googleapis.com/ingress: all
       - name: template_labels
         description: A set of key/value label pairs to assign to the container metadata
         varType: map(string)
