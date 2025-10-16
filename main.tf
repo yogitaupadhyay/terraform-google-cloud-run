@@ -24,11 +24,13 @@ resource "google_cloud_run_service" "main" {
   name                       = var.service_name
   location                   = var.location
   project                    = var.project_id
-  autogenerate_revision_name = var.generate_revision_name
+  autogenerate_revision_name = true
 
   metadata {
     labels      = var.service_labels
-    annotations = var.service_annotations
+    annotations = {
+    "run.googleapis.com/ingress" = "all"
+  }
   }
 
   template {
@@ -171,7 +173,7 @@ resource "google_cloud_run_service" "main" {
     metadata {
       labels      = var.template_labels
       annotations = local.template_annotations
-      name        = var.generate_revision_name ? null : "${var.service_name}-${var.traffic_split[0].revision_name}"
+      name        = true ? null : "${var.service_name}-${var.traffic_split[0].revision_name}"
     } // metadata
   }   // template
 

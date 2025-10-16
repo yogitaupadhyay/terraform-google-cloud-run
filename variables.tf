@@ -35,12 +35,6 @@ variable "image" {
   type        = string
 }
 
-variable "generate_revision_name" {
-  type        = bool
-  description = "Option to enable revision name generation"
-  default     = true
-}
-
 variable "traffic_split" {
   type = list(object({
     latest_revision = bool
@@ -61,14 +55,6 @@ variable "service_labels" {
   type        = map(string)
   description = "A set of key/value label pairs to assign to the service"
   default     = {}
-}
-
-variable "service_annotations" {
-  type        = map(string)
-  description = "Annotations to the service. Acceptable values all, internal, internal-and-cloud-load-balancing"
-  default = {
-    "run.googleapis.com/ingress" = "all"
-  }
 }
 
 // Metadata
